@@ -17,10 +17,11 @@ cheak.addEventListener('click', function () {
     if (!guessValue) {
         message.textContent = '⛔ No number!';
     } else if (guessValue === secretNumber) {
-        message.textContent = 'Correct Guess';
+        message.textContent = 'Correct Number';
         number.textContent = secretNumber;
-    } else {
-        number.textContent = secretNumber;
-        message.textContent = 'Wrong Guess';
+    } else if (guessValue > secretNumber) {
+        message.textContent = 'Too High!';
+    } else if (guessValue < secretNumber) {
+        message, textContent = 'Too Low'
     }
 })
