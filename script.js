@@ -19,9 +19,42 @@ cheak.addEventListener('click', function () {
     } else if (guessValue === secretNumber) {
         message.textContent = 'Correct Number';
         number.textContent = secretNumber;
+        document.querySelector('body').style.backgroundColor = '#60b347'
+        document.querySelector('.number').style.width = '30rem';
+        if (scoreValue > highscoreValue) {
+            highscore.textContent = scoreValue;
+
+        }
     } else if (guessValue > secretNumber) {
-        message.textContent = 'Too High!';
+        if (scoreValue > 1) {
+            message.textContent = 'Too High!';
+            scoreValue--;
+            score.textContent = scoreValue;
+        } else {
+            message.textContent = 'You have lost the game!'
+            score.textContent = 0;
+        }
+
     } else if (guessValue < secretNumber) {
-        message, textContent = 'Too Low'
+        if (scoreValue > 1) {
+            message.textContent = 'Too Low!';
+            scoreValue--;
+            score.textContent = scoreValue;
+        } else {
+            message.textContent = 'You have lost the game!'
+            score.textContent = 0;
+        }
     }
+})
+
+again.addEventListener('click', function () {
+    guess.value = '';
+    message.textContent = 'Start guessing...';
+    score.textContent = 20;
+    scoreValue = 20;
+    number.textContent = '?';
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem'
+
 })
