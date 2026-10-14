@@ -32,7 +32,7 @@ cheak.addEventListener('click', function () {
             scoreValue--;
             score.textContent = scoreValue;
         } else {
-            message.textContent = 'You have lost the game!'
+            message.textContent = 'You have lost the game!';
             score.textContent = 0;
         }
     }
