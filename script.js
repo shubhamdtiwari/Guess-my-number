@@ -22,22 +22,13 @@ cheak.addEventListener('click', function () {
         document.querySelector('body').style.backgroundColor = '#60b347'
         document.querySelector('.number').style.width = '30rem';
         if (scoreValue > highscoreValue) {
+            highscoreValue = scoreValue;
             highscore.textContent = scoreValue;
 
         }
-    } else if (guessValue > secretNumber) {
+    } else if (guess !== secretNumber) {
         if (scoreValue > 1) {
-            message.textContent = 'Too High!';
-            scoreValue--;
-            score.textContent = scoreValue;
-        } else {
-            message.textContent = 'You have lost the game!'
-            score.textContent = 0;
-        }
-
-    } else if (guessValue < secretNumber) {
-        if (scoreValue > 1) {
-            message.textContent = 'Too Low!';
+            message.textContent = guessValue > secretNumber ? 'Too High' : 'Too Low';
             scoreValue--;
             score.textContent = scoreValue;
         } else {
@@ -55,6 +46,6 @@ again.addEventListener('click', function () {
     number.textContent = '?';
     secretNumber = Math.trunc(Math.random() * 20) + 1;
     document.querySelector('body').style.backgroundColor = '#222';
-    document.querySelector('.number').style.width = '15rem'
+    document.querySelector('.number').style.width = '15rem';
 
 })
